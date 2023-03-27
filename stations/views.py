@@ -14,8 +14,7 @@ def bus_stations(request):
     # получите текущую страницу и передайте ее в контекст
     # также передайте в контекст список станций на странице
     page_number = int(request.GET.get('page', 1))
-    CONTENT = [str(i) for i in range(10000)]
-    paginator = Paginator(CONTENT, 10)
+    paginator = Paginator(stations, 10)
     page = paginator.get_page(page_number)
     context = {
             'bus_stations': stations,
